@@ -1,5 +1,6 @@
 package media.emrs.testnavdrawer;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -21,7 +22,8 @@ import media.emrs.testnavdrawer.fragment.NewsFragment;
 import media.emrs.testnavdrawer.model.FragmentModel;
 
 public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+    implements NavigationView.OnNavigationItemSelectedListener,
+    NewsFragment.OnFragmentInteractionListener, CategoryFragment.OnFragmentInteractionListener {
 
   @Bind(R.id.tabLayout) TabLayout tabLayout;
   @Bind(R.id.viewPager) ViewPager viewPager;
@@ -115,5 +117,9 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
+  }
+
+  @Override public void onFragmentInteraction(Uri uri) {
+
   }
 }
